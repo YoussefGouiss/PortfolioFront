@@ -8,7 +8,7 @@ import Home from './composants/Home'
 import Project from './composants/Project'
 import AboutPage from './composants/AboutPage'
 import ContactPage from './composants/ContactPage'
-import NotFoundPage from './composants/NOtFoundPage'
+import NotFoundPage from './NotFoundPage'
 
 function App() {
 
