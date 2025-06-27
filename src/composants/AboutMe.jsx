@@ -6,7 +6,7 @@ import { FiDownload } from 'react-icons/fi';
 const personalDetails = [
   { label: 'Name', value: 'Youssef Gouiss' },
   { label: 'Age', value: '22' },
-  { label: 'Phone', value: '+2127 08 01 63 38' },
+  { label: 'Phone', value: '+2127 04 25 78 92' },
   { label: 'Email', value: 'Youssefgouiss298@gmail.com' },
 ];
 
