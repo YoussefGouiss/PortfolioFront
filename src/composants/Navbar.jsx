@@ -51,7 +51,7 @@ const Navbar = () => {
 
             
               <img 
-                src="public\codewithgouiss-removebg-preview.png" 
+                src="codewithgouiss-removebg-preview.png" 
                 alt="Logo" 
                 className="h-12 w-auto relative z-10 transition-all duration-300 group-hover:scale-110" 
               />
