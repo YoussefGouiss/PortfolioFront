@@ -11,8 +11,8 @@ const ContactForm = () => {
     message: '',
   });
 
-  // State for the submission status
-  const [status, setStatus] = useState('idle'); // 'idle' | 'loading' | 'success' | 'error'
+  // State for the submission status: 'idle' | 'loading' | 'success' | 'error'
+  const [status, setStatus] = useState('idle');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,21 +20,23 @@ const ContactForm = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent the default form redirect
     setStatus('loading');
 
-    // --- CONNECT TO FORMSPREE ---
-    // 1. Go to https://formspree.io/ and create a new form.
-    // 2. Replace the URL below with your own Formspree endpoint URL.
     try {
-      const response = await fetch('https://formspree.io/f/YOUR_UNIQUE_ID', {
+      // Submit to your GetForm.io endpoint
+      const response = await fetch('https://getform.io/f/awnweovb', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json' // Important for GetForm to know how to respond
+        },
         body: JSON.stringify(formData),
       });
 
       if (response.ok) {
         setStatus('success');
+        setFormData({ fullName: '', email: '', phone: '', message: '' }); // Clear form on success
       } else {
         throw new Error('Network response was not ok.');
       }
@@ -44,18 +46,59 @@ const ContactForm = () => {
     }
   };
 
-  // If submission is successful, show a thank you message
+  // --- STYLED SUCCESS MESSAGE ---
+  // If submission is successful, show the custom thank you message
   if (status === 'success') {
     return (
-      <div className="text-center p-8 bg-black/40 backdrop-blur-md rounded-lg ring-1 ring-green-500/50 shadow-lg shadow-green-500/20">
-        <FiCheckCircle className="mx-auto w-16 h-16 text-green-400 mb-4" />
-        <h3 className="text-2xl font-bold text-white mb-2">Thank You!</h3>
-        <p className="text-gray-300">Your message has been sent successfully. I'll get back to you soon.</p>
+      <div className="w-full max-w-xl mx-auto py-16 px-4">
+        {/* Main container with entrance animation */}
+        <div className="text-center p-1 rounded-lg bg-gradient-to-br from-purple-500 via-pink-500 to-cyan-400 animate-fadeInUp">
+          <div className="p-8 md:p-10 bg-black/80 backdrop-blur-lg rounded-md">
+            
+            {/* Checkmark Icon with glow and delayed animation */}
+            <FiCheckCircle 
+              className="mx-auto w-20 h-20 text-cyan-400 mb-5 animate-pulse" 
+              style={{ 
+                animationName: 'fadeInUp',
+                animationDuration: '0.8s',
+                animationDelay: '0.2s',
+                animationFillMode: 'backwards',
+                filter: 'drop-shadow(0 0 12px rgba(0, 255, 255, 0.6))' 
+              }}
+            />
+            
+            {/* "Message Sent!" text with gradient and delayed animation */}
+            <h3 
+              className="text-3xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-3"
+              style={{
+                animationName: 'fadeInUp',
+                animationDuration: '0.8s',
+                animationDelay: '0.4s',
+                animationFillMode: 'backwards'
+              }}
+            >
+              Message Sent!
+            </h3>
+
+            {/* Subtext with delayed animation */}
+            <p 
+              className="text-indigo-200/80"
+              style={{
+                animationName: 'fadeInUp',
+                animationDuration: '0.8s',
+                animationDelay: '0.6s',
+                animationFillMode: 'backwards'
+              }}
+            >
+              Thank you for reaching out. I'll get back to you soon.
+            </p>
+          </div>
+        </div>
       </div>
     );
   }
 
-  // The main form component
+  // --- MAIN CONTACT FORM ---
   return (
     <section className="w-full max-w-2xl mx-auto py-16 px-4 animate-fadeInUp">
       <div className="text-center mb-12">
@@ -67,14 +110,13 @@ const ContactForm = () => {
 
       <div className="relative bg-black/40 backdrop-blur-md p-6 md:p-8 rounded-lg ring-1 ring-purple-500/30">
         <form onSubmit={handleSubmit} className="space-y-6">
-          
           {/* Form Fields */}
           <InputField icon={<FiUser />} label="Full Name" name="fullName" type="text" value={formData.fullName} onChange={handleChange} required />
           <InputField icon={<FiMail />} label="Email" name="email" type="email" value={formData.email} onChange={handleChange} required />
           <InputField icon={<FiPhone />} label="Phone (Optional)" name="phone" type="tel" value={formData.phone} onChange={handleChange} />
           <TextareaField icon={<FiMessageSquare />} label="Message" name="message" value={formData.message} onChange={handleChange} required />
           
-          {/* Submit Button */}
+          {/* Submit Button with loading state */}
           <button
             type="submit"
             disabled={status === 'loading'}
@@ -96,7 +138,7 @@ const ContactForm = () => {
               'Send Message'
             )}
           </button>
-          {status === 'error' && <p className="text-center text-red-400 mt-4">Something went wrong. Please try again.</p>}
+          {status === 'error' && <p className="text-center text-red-400 mt-4">Something went wrong. Please try again later.</p>}
         </form>
       </div>
     </section>

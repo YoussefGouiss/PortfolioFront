@@ -44,7 +44,7 @@ const Footer = () => {
         
         {/* --- Logo --- */}
         <div className="mb-6">
-            <img src='public\image1-removebg-preview.png' className='h-10'/>
+            <img src='public\codewithgouiss-removebg-preview.png' className='h-10'/>
         </div>
 
         {/* --- Social Links --- */}

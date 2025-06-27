@@ -34,8 +34,8 @@ const socialLinks = [
   {
     id: 1,
     icon: <FaInstagram />,
-    label: 'youssef_gouiss',
-    href: 'https://instagram.com/youssef_gouiss',
+    label: 'code.with.gouiss',
+    href: 'https://www.instagram.com/code.with.gouiss/',
     colorHex: '#f472b6', // pink-400
     glowFilter: 'drop-shadow(0 0 8px rgba(244, 114, 182, 0.8))',
     gradient: 'from-pink-400 to-purple-500',
@@ -53,7 +53,7 @@ const socialLinks = [
     id: 3,
     icon: <FaLinkedin />,
     label: 'Youssef Gouiss',
-    href: 'https://linkedin.com/in/youssef-gouiss',
+    href: 'https://www.linkedin.com/in/youssef-gouiss-1023a2352/',
     colorHex: '#818cf8', // indigo-400
     glowFilter: 'drop-shadow(0 0 8px rgba(129, 140, 248, 0.8))',
     gradient: 'from-indigo-400 to-purple-500',

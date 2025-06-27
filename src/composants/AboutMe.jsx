@@ -42,11 +42,6 @@ const AboutMe = () => {
 
         {/* Right Column: Framed Content Box */}
         <div className="relative flex-grow p-4">
-          {/* 
-            The L-shaped frame elements.
-            - Mobile: Smaller size (w-2/3 h-2/3) for balance.
-            - Desktop (md:): Original larger size (w-3/4 h-3/4).
-          */}
           <div className="absolute top-0 left-0 w-2/3 h-2/3 md:w-3/4 md:h-3/4 border-t-2 border-l-2 border-purple-400/50 rounded-tl-lg"></div>
           <div className="absolute bottom-0 right-0 w-2/3 h-2/3 md:w-3/4 md:h-3/4 border-b-2 border-r-2 border-purple-400/50 rounded-br-lg"></div>
 
@@ -75,7 +70,7 @@ const AboutMe = () => {
             {/* Download CV Button */}
             <div className="mt-8 text-center md:text-left">
               <a
-                href="/path-to-your/cv.pdf" // <-- IMPORTANT: Update this path
+                href="/cv.pdf"
                 download
                 className="
                   inline-flex items-center gap-3 px-6 py-2.5 rounded-full

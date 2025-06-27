@@ -56,7 +56,7 @@ const Hello = () => {
 
         {/* --- NEW: Glowing Ghost Button --- */}
         <a
-          href="mailto:Youssefgouiss298@gmail.com" // <-- IMPORTANT: Change this to your email
+          href="/contact" // <-- IMPORTANT: Change this to your email
           className="
             px-8 py-3 rounded-full
             font-semibold tracking-wider text-indigo-300

@@ -14,8 +14,8 @@ const allProjectsData = [
     description: "A dynamic and accessible website for a non-profit organization dedicated to supporting children, women, and people with disabilities.",
     imageUrl: '/image 1.png', // Remember: place images in the 'public' folder
     liveUrl: 'https://elbaderfullstack.ct.ws/',
-    githubUrl: '#', // Add your GitHub repo link
-    technologies: ['React', 'Tailwind CSS', 'Node.js', 'Express'],
+    githubUrl: 'https://github.com/YoussefGouiss/Elbader', // Add your GitHub repo link
+    technologies: ['React', 'Tailwind CSS', 'Laravel', 'mysql'],
   },
   {
     number: '2',
@@ -23,8 +23,8 @@ const allProjectsData = [
     description: "A comprehensive HR management platform to streamline recruitment, featuring role-based access and an intuitive application tracking system.",
     imageUrl: '/image 2.png',
     liveUrl: '#',
-    githubUrl: '#',
-    technologies: ['Vue.js', 'Firebase', 'Vuetify', 'Jest'],
+    githubUrl: 'https://github.com/nihadZaffou/gestion-ressources-humaines',
+    technologies: ['React', 'Tailwind CSS', 'Laravel', 'mysql'],
   }
 ];
 

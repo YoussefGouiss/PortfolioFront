@@ -75,7 +75,6 @@ export default function Home() {
     <div>
       {/* Inject the custom animation styles into the page */}
       <style>{animationStyles}</style>
-      
       <SocialSidebar/>
       <Navbar/>
 
